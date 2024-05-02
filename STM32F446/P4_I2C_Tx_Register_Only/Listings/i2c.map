@@ -17,6 +17,7 @@ Section Cross References
     main.o(.text.main) refers to main.o(.text.I2C_Address) for I2C_Address
     main.o(.text.main) refers to main.o(.text.I2C_Write) for I2C_Write
     main.o(.text.main) refers to main.o(.text.I2C_Stop) for I2C_Stop
+    main.o(.text.main) refers to delay.o(.text.Delay_ms) for Delay_ms
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     delay.o(.ARM.exidx.text.TIM6Config) refers to delay.o(.text.TIM6Config) for [Anonymous Symbol]
     delay.o(.ARM.exidx.text.Delay_us) refers to delay.o(.text.Delay_us) for [Anonymous Symbol]
@@ -161,9 +162,7 @@ Removing Unused input sections from the image.
     Removing main.o(.ARM.use_no_argv), (4 bytes).
     Removing delay.o(.text), (0 bytes).
     Removing delay.o(.ARM.exidx.text.TIM6Config), (8 bytes).
-    Removing delay.o(.text.Delay_us), (46 bytes).
     Removing delay.o(.ARM.exidx.text.Delay_us), (8 bytes).
-    Removing delay.o(.text.Delay_ms), (56 bytes).
     Removing delay.o(.ARM.exidx.text.Delay_ms), (8 bytes).
     Removing rccconfig.o(.text), (0 bytes).
     Removing rccconfig.o(.ARM.exidx.text.SysClockConfig), (8 bytes).
@@ -175,7 +174,7 @@ Removing Unused input sections from the image.
     Removing system_stm32f4xx.o(.rodata.AHBPrescTable), (16 bytes).
     Removing system_stm32f4xx.o(.rodata.APBPrescTable), (8 bytes).
 
-25 unused section(s) (total 658 bytes) removed from the image.
+23 unused section(s) (total 556 bytes) removed from the image.
 
 ==============================================================================
 
@@ -296,17 +295,19 @@ Image Symbol Table
     .text                                    0x080002f4   Section        0  sys_exit.o(.text)
     .text                                    0x08000300   Section        2  use_no_semi.o(.text)
     .text                                    0x08000302   Section        0  indicate_semi.o(.text)
-    [Anonymous Symbol]                       0x08000304   Section        0  main.o(.text.I2C_Address)
-    [Anonymous Symbol]                       0x0800034c   Section        0  main.o(.text.I2C_Config)
-    [Anonymous Symbol]                       0x08000408   Section        0  main.o(.text.I2C_Start)
-    [Anonymous Symbol]                       0x08000430   Section        0  main.o(.text.I2C_Stop)
-    [Anonymous Symbol]                       0x08000444   Section        0  main.o(.text.I2C_Write)
-    [Anonymous Symbol]                       0x08000488   Section        0  rccconfig.o(.text.SysClockConfig)
-    [Anonymous Symbol]                       0x0800055c   Section        0  system_stm32f4xx.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x08000570   Section        0  delay.o(.text.TIM6Config)
-    [Anonymous Symbol]                       0x080005c0   Section        0  main.o(.text.main)
-    $v0                                      0x080005ec   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x080005ec   Section       26  fpinit.o(x$fpl$fpinit)
+    [Anonymous Symbol]                       0x08000304   Section        0  delay.o(.text.Delay_ms)
+    [Anonymous Symbol]                       0x0800033c   Section        0  delay.o(.text.Delay_us)
+    [Anonymous Symbol]                       0x0800036c   Section        0  main.o(.text.I2C_Address)
+    [Anonymous Symbol]                       0x080003b4   Section        0  main.o(.text.I2C_Config)
+    [Anonymous Symbol]                       0x08000470   Section        0  main.o(.text.I2C_Start)
+    [Anonymous Symbol]                       0x08000498   Section        0  main.o(.text.I2C_Stop)
+    [Anonymous Symbol]                       0x080004ac   Section        0  main.o(.text.I2C_Write)
+    [Anonymous Symbol]                       0x080004f0   Section        0  rccconfig.o(.text.SysClockConfig)
+    [Anonymous Symbol]                       0x080005c4   Section        0  system_stm32f4xx.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x080005d8   Section        0  delay.o(.text.TIM6Config)
+    [Anonymous Symbol]                       0x08000628   Section        0  main.o(.text.main)
+    $v0                                      0x0800067a   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x0800067a   Section       26  fpinit.o(x$fpl$fpinit)
     .bss                                     0x20000000   Section       96  libspace.o(.bss)
     Heap_Mem                                 0x20000060   Data         512  startup_stm32f446xx.o(HEAP)
     HEAP                                     0x20000060   Section      512  startup_stm32f446xx.o(HEAP)
@@ -508,20 +509,22 @@ Image Symbol Table
     __I$use$semihosting                      0x08000301   Thumb Code     0  use_no_semi.o(.text)
     __use_no_semihosting_swi                 0x08000301   Thumb Code     2  use_no_semi.o(.text)
     __semihosting_library_function           0x08000303   Thumb Code     0  indicate_semi.o(.text)
-    I2C_Address                              0x08000305   Thumb Code    72  main.o(.text.I2C_Address)
-    I2C_Config                               0x0800034d   Thumb Code   186  main.o(.text.I2C_Config)
-    I2C_Start                                0x08000409   Thumb Code    38  main.o(.text.I2C_Start)
-    I2C_Stop                                 0x08000431   Thumb Code    18  main.o(.text.I2C_Stop)
-    I2C_Write                                0x08000445   Thumb Code    68  main.o(.text.I2C_Write)
-    SysClockConfig                           0x08000489   Thumb Code   210  rccconfig.o(.text.SysClockConfig)
-    SystemInit                               0x0800055d   Thumb Code    18  system_stm32f4xx.o(.text.SystemInit)
-    TIM6Config                               0x08000571   Thumb Code    80  delay.o(.text.TIM6Config)
-    main                                     0x080005c1   Thumb Code    44  main.o(.text.main)
-    _fp_init                                 0x080005ed   Thumb Code    26  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x08000605   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x08000605   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    Region$$Table$$Base                      0x08000608   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08000618   Number         0  anon$$obj.o(Region$$Table)
+    Delay_ms                                 0x08000305   Thumb Code    56  delay.o(.text.Delay_ms)
+    Delay_us                                 0x0800033d   Thumb Code    46  delay.o(.text.Delay_us)
+    I2C_Address                              0x0800036d   Thumb Code    72  main.o(.text.I2C_Address)
+    I2C_Config                               0x080003b5   Thumb Code   186  main.o(.text.I2C_Config)
+    I2C_Start                                0x08000471   Thumb Code    38  main.o(.text.I2C_Start)
+    I2C_Stop                                 0x08000499   Thumb Code    18  main.o(.text.I2C_Stop)
+    I2C_Write                                0x080004ad   Thumb Code    68  main.o(.text.I2C_Write)
+    SysClockConfig                           0x080004f1   Thumb Code   210  rccconfig.o(.text.SysClockConfig)
+    SystemInit                               0x080005c5   Thumb Code    18  system_stm32f4xx.o(.text.SystemInit)
+    TIM6Config                               0x080005d9   Thumb Code    80  delay.o(.text.TIM6Config)
+    main                                     0x08000629   Thumb Code    82  main.o(.text.main)
+    _fp_init                                 0x0800067b   Thumb Code    26  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x08000693   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x08000693   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    Region$$Table$$Base                      0x08000694   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x080006a4   Number         0  anon$$obj.o(Region$$Table)
     __libspace_start                         0x20000000   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x20000060   Data           0  libspace.o(.bss)
 
@@ -533,9 +536,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000249
 
-  Load Region LR_1 (Base: 0x08000000, Size: 0x00000618, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x08000000, Size: 0x000006a4, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000618, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x000006a4, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -596,31 +599,33 @@ Memory Map of the image
     0x08000300   0x08000300   0x00000002   Code   RO          177    .text               c_w.l(use_no_semi.o)
     0x08000302   0x08000302   0x00000000   Code   RO          179    .text               c_w.l(indicate_semi.o)
     0x08000302   0x08000302   0x00000002   PAD
-    0x08000304   0x08000304   0x00000048   Code   RO            8    .text.I2C_Address   main.o
-    0x0800034c   0x0800034c   0x000000ba   Code   RO            2    .text.I2C_Config    main.o
-    0x08000406   0x08000406   0x00000002   PAD
-    0x08000408   0x08000408   0x00000026   Code   RO            4    .text.I2C_Start     main.o
-    0x0800042e   0x0800042e   0x00000002   PAD
-    0x08000430   0x08000430   0x00000012   Code   RO           10    .text.I2C_Stop      main.o
-    0x08000442   0x08000442   0x00000002   PAD
-    0x08000444   0x08000444   0x00000044   Code   RO            6    .text.I2C_Write     main.o
-    0x08000488   0x08000488   0x000000d2   Code   RO           37    .text.SysClockConfig  rccconfig.o
-    0x0800055a   0x0800055a   0x00000002   PAD
-    0x0800055c   0x0800055c   0x00000012   Code   RO           54    .text.SystemInit    system_stm32f4xx.o
-    0x0800056e   0x0800056e   0x00000002   PAD
-    0x08000570   0x08000570   0x00000050   Code   RO           24    .text.TIM6Config    delay.o
-    0x080005c0   0x080005c0   0x0000002c   Code   RO           14    .text.main          main.o
-    0x080005ec   0x080005ec   0x0000001a   Code   RO          160    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x08000606   0x08000606   0x00000002   PAD
-    0x08000608   0x08000608   0x00000010   Data   RO          235    Region$$Table       anon$$obj.o
+    0x08000304   0x08000304   0x00000038   Code   RO           28    .text.Delay_ms      delay.o
+    0x0800033c   0x0800033c   0x0000002e   Code   RO           26    .text.Delay_us      delay.o
+    0x0800036a   0x0800036a   0x00000002   PAD
+    0x0800036c   0x0800036c   0x00000048   Code   RO            8    .text.I2C_Address   main.o
+    0x080003b4   0x080003b4   0x000000ba   Code   RO            2    .text.I2C_Config    main.o
+    0x0800046e   0x0800046e   0x00000002   PAD
+    0x08000470   0x08000470   0x00000026   Code   RO            4    .text.I2C_Start     main.o
+    0x08000496   0x08000496   0x00000002   PAD
+    0x08000498   0x08000498   0x00000012   Code   RO           10    .text.I2C_Stop      main.o
+    0x080004aa   0x080004aa   0x00000002   PAD
+    0x080004ac   0x080004ac   0x00000044   Code   RO            6    .text.I2C_Write     main.o
+    0x080004f0   0x080004f0   0x000000d2   Code   RO           37    .text.SysClockConfig  rccconfig.o
+    0x080005c2   0x080005c2   0x00000002   PAD
+    0x080005c4   0x080005c4   0x00000012   Code   RO           54    .text.SystemInit    system_stm32f4xx.o
+    0x080005d6   0x080005d6   0x00000002   PAD
+    0x080005d8   0x080005d8   0x00000050   Code   RO           24    .text.TIM6Config    delay.o
+    0x08000628   0x08000628   0x00000052   Code   RO           14    .text.main          main.o
+    0x0800067a   0x0800067a   0x0000001a   Code   RO          160    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x08000694   0x08000694   0x00000010   Data   RO          235    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x08000618, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x080006a4, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
 
     **** No section assigned to this execution region ****
 
 
-    Execution Region ER_ZI (Exec base: 0x20000000, Load base: 0x08000618, Size: 0x00000660, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x20000000, Load base: 0x080006a4, Size: 0x00000660, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -636,16 +641,16 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        80          0          0          0          0       2293   delay.o
-       426          0          0          0          0       2828   main.o
+       182          0          0          0          0       2293   delay.o
+       464          0          0          0          0       2916   main.o
        210          0          0          0          0       1800   rccconfig.o
         64         26        452          0       1536        904   startup_stm32f446xx.o
         18          0          0          0          0       2750   system_stm32f4xx.o
 
     ----------------------------------------------------------------------
-       808         26        468          0       1536      10575   Object Totals
+       950         26        468          0       1536      10663   Object Totals
          0          0         16          0          0          0   (incl. Generated)
-        10          0          0          0          0          0   (incl. Padding)
+        12          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -673,8 +678,8 @@ Image component sizes
         26          0          0          0          0        116   fpinit.o
 
     ----------------------------------------------------------------------
-       284         16          0          0         96        700   Library Totals
-         8          0          0          0          0          0   (incl. Padding)
+       282         16          0          0         96        700   Library Totals
+         6          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -684,7 +689,7 @@ Image component sizes
         26          0          0          0          0        116   fz_wm.l
 
     ----------------------------------------------------------------------
-       284         16          0          0         96        700   Library Totals
+       282         16          0          0         96        700   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -693,15 +698,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1092         42        468          0       1632      10991   Grand Totals
-      1092         42        468          0       1632      10991   ELF Image Totals
-      1092         42        468          0          0          0   ROM Totals
+      1232         42        468          0       1632      11079   Grand Totals
+      1232         42        468          0       1632      11079   ELF Image Totals
+      1232         42        468          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 1560 (   1.52kB)
+    Total RO  Size (Code + RO Data)                 1700 (   1.66kB)
     Total RW  Size (RW Data + ZI Data)              1632 (   1.59kB)
-    Total ROM Size (Code + RO Data + RW Data)       1560 (   1.52kB)
+    Total ROM Size (Code + RO Data + RW Data)       1700 (   1.66kB)
 
 ==============================================================================
 

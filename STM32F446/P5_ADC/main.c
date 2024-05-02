@@ -1,4 +1,3 @@
-
 #include "RccConfig.h"
 
 void ADC_Init (void)

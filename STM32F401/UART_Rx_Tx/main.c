@@ -37,7 +37,7 @@ void Uart2Config (void) {
 	USART2->CR1 &= ~(1<<12); // M = 0; 8 bit word length
 	
 	// 5. Select the desired baud rate using the USART_BRR register.
-	USART2->BRR = (13<<0) | (22<<4); // Buad rate of 115200, PCLK1 at 42 MHz
+	USART2->BRR = (float)4375; //(13<<0) | (22<<4); // Buad rate of 115200, PCLK1 at 42 MHz
 	
 	// 6. Enable the Transmitter/Receiver by Setting the TE and RE bits in USART_CR1 Register.
 	USART2->CR1 |= (1<<2); // RE = 1 ... Enable the Receiver

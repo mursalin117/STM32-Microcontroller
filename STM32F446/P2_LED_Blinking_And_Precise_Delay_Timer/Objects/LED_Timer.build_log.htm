@@ -22,36 +22,12 @@ Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
 E:\STM32-Microcontroller\STM32F446\P2_LED_Blinking_And_Precise_Delay_Timer\LED_Timer.uvprojx
-Project File Date:  03/28/2023
+Project File Date:  07/19/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-main.c(1): warning: In file included from...
-./RccConfig.h(21): warning: // comments are not allowed in this language [-Wcomment]
-#include "stm32f4xx.h"                  // Device header
-                                        ^
-./RccConfig.h(78): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-main.c(17): warning: // comments are not allowed in this language [-Wcomment]
-// 1. Enable Timer clock
-^
-main.c(42): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
-        for (uint16_t i=0; i<ms; i++)
-             ^
-main.c(42): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
-main.c(64): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOA->OTYPER &= ~(1<<5);  // bit 5=0 --> Output push pull
-                      ~~ ^~~~~~~
-main.c(66): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOA->PUPDR &= ~((1<<10) | (1<<11));  // Pin PA5 (bits 11:10) are 0:0 --> no pull up or pulldown
-                     ~~ ^~~~~~~~~~~~~~~~~~~~
-7 warnings generated.
-compiling main.c...
-linking...
-Program Size: Code=904 RO-data=468 RW-data=0 ZI-data=1632  
-".\Objects\LED_Timer.axf" - 0 Error(s), 7 Warning(s).
+".\Objects\LED_Timer.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -62,15 +38,15 @@ Package Vendor: ARM
    * Component: CORE Version: 5.6.0
 
 Package Vendor: Keil
-                https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.0.pack
-                Keil.STM32F4xx_DFP.2.17.0
+                https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.1.pack
+                Keil.STM32F4xx_DFP.2.17.1
                 STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
    * Component: Startup Version: 2.6.3
 
 <h2>Collection of Component include folders:</h2>
   ./RTE/_Target_1
   C:/Users/mchow/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
-  C:/Users/mchow/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+  C:/Users/mchow/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
 
 <h2>Collection of Component Files used:</h2>
 
@@ -78,9 +54,9 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:2.6.3
       Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
-      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f446xx.s
-      Source file:   MDK/Device/Source/ARM/STM32F4xx_OTP.s
       Source file:   MDK/Device/Source/ARM/STM32F446xx_OPT.s
+      Source file:   MDK/Device/Source/ARM/STM32F4xx_OTP.s
+      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f446xx.s
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
 Build Time Elapsed:  00:00:00
 </pre>

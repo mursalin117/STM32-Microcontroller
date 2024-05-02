@@ -21,8 +21,8 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
 Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
-E:\STM32-Microcontroller\UART_Rx_Tx\uart.uvprojx
-Project File Date:  09/05/2022
+E:\STM32-Microcontroller\STM32F401\UART_Rx_Tx\uart.uvprojx
+Project File Date:  10/22/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
@@ -33,14 +33,17 @@ main.c(11): warning: // comments are not allowed in this language [-Wcomment]
 main.c(37): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         USART2->CR1 &= ~(1<<12); // M = 0; 8 bit word length
                     ~~ ^~~~~~~~
+main.c(40): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
+        USART2->BRR = (float)4375; //(13<<0) | (22<<4); // Buad rate of 115200, PCLK1 at 42 MHz
+                    ~ ^~~~~~~~~~~
 main.c(77): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
         temp = USART2->DR; // Read the data. This clears RXNE also.
              ~ ~~~~~~~~^~
-3 warnings generated.
+4 warnings generated.
 compiling main.c...
 linking...
 Program Size: Code=1046 RO-data=430 RW-data=0 ZI-data=1632  
-".\Objects\uart.axf" - 0 Error(s), 3 Warning(s).
+".\Objects\uart.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -51,15 +54,15 @@ Package Vendor: ARM
    * Component: CORE Version: 5.6.0
 
 Package Vendor: Keil
-                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.16.0.pack
-                Keil.STM32F4xx_DFP.2.16.0
+                https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.1.pack
+                Keil.STM32F4xx_DFP.2.17.1
                 STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
    * Component: Startup Version: 2.6.3
 
 <h2>Collection of Component include folders:</h2>
   ./RTE/_Target_1
   C:/Users/mchow/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
-  C:/Users/mchow/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+  C:/Users/mchow/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
 
 <h2>Collection of Component Files used:</h2>
 
@@ -67,11 +70,11 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:2.6.3
       Source file:   MDK/Device/Source/ARM/STM32F401xx_OPT.s
-      Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f401xc.s
+      Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
       Source file:   MDK/Device/Source/ARM/STM32F4xx_OTP.s
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

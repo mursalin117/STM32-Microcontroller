@@ -100,10 +100,10 @@ int main (void)
 		// The data send and receive section will be check seperately - commenting one while checking other.
 		
 		// Data Send
-		// UART2_SendChar ('G'); // single character is send
-		// UART2_SendString("hello\n");
+		//UART2_SendChar ('G'); // single character is send
+		//UART2_SendString("hello\n");
 		// UART2_SendString ("hello world\n");
-		// Delay_ms(1000);
+		//Delay_ms(1000);
 		
 		// Receive Data
 		uint8_t data = UART2_GetChar ();

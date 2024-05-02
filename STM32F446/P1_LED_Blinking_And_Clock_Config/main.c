@@ -112,9 +112,9 @@ int main (void)
 	while (1)
 	{
 		GPIOA->BSRR |= (1<<5);  // Set the pin PA5
-		delay (2000000); 
+		delay (10000000); 
 		GPIOA->BSRR |= ((1<<5) <<16);  // Reset pin PA5
-		delay (2000000); 
+		delay (10000000); 
 	}
 }
 

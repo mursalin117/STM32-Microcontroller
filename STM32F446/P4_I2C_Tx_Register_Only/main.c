@@ -120,13 +120,22 @@ int main ()
 	TIM6Config ();
 	I2C_Config ();	
 	
-	I2C_Start ();
-	I2C_Address (0x4E);
-	I2C_Write (0x01);
-	I2C_Stop ();
+	// First check one led is on or not
+	//I2C_Start ();
+	//I2C_Address (0x4E);
+	//I2C_Write (0x01);
+	//I2C_Stop ();
 	
 	while (1)
 	{
+		for (int i = 0; i < 8; i++) {
+			I2C_Start ();
+			I2C_Address (0x4E);
+			I2C_Write (1 << i);
+			I2C_Stop ();
+			
+			Delay_ms (1000);
+		}
 		// Delay_ms (1000);
 	}
 }
